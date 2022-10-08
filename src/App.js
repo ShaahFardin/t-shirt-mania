@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from "./Layout/Main";
 import Home from "./components/Home/Home";
 import Orders from "./components/Orders/Orders";
+import Grandpa from "./components/Grandpa/Grandpa";
 
 function App() {
   const router = createBrowserRouter([
@@ -12,7 +13,8 @@ function App() {
       element: <Main></Main>,
       children: [
         {
-          path: "/home",
+          path: "/",
+          loader: ()=> fetch('tshirts.json'),
           element: <Home></Home>,
         },
         {
@@ -20,7 +22,8 @@ function App() {
           element: <Orders></Orders>,
         },
         {
-          path: "/",
+          path: "/grandpa",
+          element: <Grandpa></Grandpa>
         },
       ],
     },
